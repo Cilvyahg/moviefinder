@@ -1,50 +1,43 @@
 'use strict';
-
-// TODO : baseurl imdbID is not good yet.
-
 const log = console.log;
 
-// 1
+// TODO : baseurl imdbID is not good yet.
+// FUNCTION FOR NEW MOVIES
+// get the UL by using id that you made
+// let baseURL = 'https://www.imdb.com/title/';
+// const imdbID = movies[1].imdbID;
+
 const moviesList = document.querySelector('#list-movies');
 
-const createLiElement = function (movie) {
-  const newliItem = document.createElement('li'); // step 2 array with 35 li elements.
-
-  const movieLink = document.createElement('a');
-
-  movieLink.setAttribute('href', movie.imdbID);
-  newliItem.append(movieLink);
-
-  const newImg = document.createElement('img');
-  newImg.setAttribute('src', movie.poster);
-  movieLink.append(newImg);
-
-  log(newliItem);
-  log(typeof newliItem);
-  return newliItem; // step 3 for each movie create a li and put the title of the movie as a string
-};
-
 const addMoviesToDom = function (movies) {
-  // get the UL by using id that you made
-  // let baseURL = 'https://www.imdb.com/title/';
-  // const imdbID = movies[1].imdbID;
+  const movieArray = movies.map(function (movie) {
+    const newliItem = document.createElement('li');
 
-  const movieArray = movies.map(createLiElement);
+    const movieLink = document.createElement('a');
 
-  log(movieArray);
+    movieLink.setAttribute('href', movie.imdbID);
+    newliItem.append(movieLink);
+
+    const newImg = document.createElement('img');
+    newImg.setAttribute('src', movie.poster);
+    movieLink.append(newImg);
+
+    log(newliItem);
+    log(Array.isArray(newliItem));
+    return newliItem;
+  });
 
   movieArray.forEach(function (movie) {
     moviesList.append(movie);
   });
-
+  console.dir(movieArray);
   return movieArray;
 };
 
 const resultMovies = addMoviesToDom(movies);
 log(resultMovies);
 
-// 2
-
+// SWITCH STATEMENT
 const handleOnChangeEvent = function (e) {
   const movieValue = e.target.value;
 
@@ -85,9 +78,14 @@ const filterMovies = function (wordInMovie) {
     return movie.title.toLowerCase().includes(wordInMovie.toLowerCase());
   });
 
-  log(`Array of the movie` , wordInMovie.toUpperCase(), moviesFilter);
+  log(`Array of the movie`, wordInMovie.toUpperCase(), moviesFilter);
   return moviesFilter;
 };
 
-//includes()
-// case-sensitive
+
+//filtermovie 
+const filterNewMovies = function () {
+  movies.filter(function (movie) {
+    return movie.year >= 2014;
+  });
+};
