@@ -46,6 +46,11 @@ prevents the default functioning be happening.
 for instance when you submit a form. the default behavior is going to another page. but if you want to prevent the default behavior. 
 
 
+vb
 
+ // log(`the button with this value :: `, this.value, ` has been checked`, e);
+  // log(e)
+  // log(e.target.id);
+  // log(e.target.value)
 
 

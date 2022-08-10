@@ -11,7 +11,7 @@ const createLiElement = function (movie) {
 
   const movieLink = document.createElement('a');
 
-  movieLink.setAttribute('href', movie.title);
+  movieLink.setAttribute('href', movie.imdbID);
   newliItem.append(movieLink);
 
   const newImg = document.createElement('img');
@@ -19,7 +19,7 @@ const createLiElement = function (movie) {
   movieLink.append(newImg);
 
   log(newliItem);
-  log(typeof newliItem)
+  log(typeof newliItem);
   return newliItem; // step 3 for each movie create a li and put the title of the movie as a string
 };
 
@@ -37,11 +37,10 @@ const addMoviesToDom = function (movies) {
   });
 
   return movieArray;
-  
 };
 
-const result = addMoviesToDom(movies);
-log(result);
+const resultMovies = addMoviesToDom(movies);
+log(resultMovies);
 
 // 2
 
@@ -49,20 +48,55 @@ const allButtons = document.querySelectorAll('input[name="movies"]');
 log(allButtons);
 
 const handleOnChangeEvent = function (e) {
-  log(`the button with this value :: `, this.value, ` has been checked`, e);
-  log(e)
-  log(e.target.id);
-  log(e.path)
-  log(e.type)
-  alert(e.target)
+  const movieValue = e.target.value;
+
+  switch (movieValue) {
+    case 'movies-new':
+      log(`I am the movie ${movieValue}`);
+      filterMovies(movieValue);
+      break;
+    case 'movies-avenger':
+      log(`I am the movie ${movieValue}`);
+      filterMovies(movieValue);
+      break;
+    case 'movies-x-men':
+      log(`I am the movie ${movieValue}`);
+      filterMovies('X-men');
+      break;
+    case 'movies-princess':
+      log(`I am the movie ${movieValue}`);
+      filterMovies('Princess');
+      break;
+    case 'movies-batman':
+      log(`I am the movie ${movieValue}`);
+      filterMovies(movieValue);
+      break;
+    default:
+      log('non of the above');
+  }
 };
 
-const buttonClick = function () {
+const movieBtnClick = function () {
   for (let button of allButtons) {
     button.addEventListener('change', handleOnChangeEvent);
   }
 };
 
-buttonClick();
+movieBtnClick(); 
 
 
+
+const filterMovies = function (wordInMovie) {
+  log(` I am filtered on the movie::`, wordInMovie);
+
+  const moviesFilter = movies.filter(function (movie) {
+    return wordInMovie === movie.title.includes(wordInMovie.toLowerCase())
+  });
+
+  log(moviesFilter);
+  return moviesFilter;
+};
+
+log(filterMovies)
+//includes()
+// case-sensitive
