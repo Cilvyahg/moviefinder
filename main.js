@@ -1,6 +1,7 @@
 'use strict';
 
 // TODO : baseurl imdbID is not good yet.
+
 const log = console.log;
 
 // 1
@@ -89,7 +90,7 @@ const filterMovies = function (wordInMovie) {
 
   const moviesFilter = movies.filter((movie) => {
     wordInMovie.toLowerCase() ===
-      movie.title.includes(wordInMovie.toLowerCase());
+      movie.title.toLowerCase().includes(wordInMovie);
   });
 
   log(moviesFilter);
