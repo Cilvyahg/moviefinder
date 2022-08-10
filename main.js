@@ -82,22 +82,19 @@ const movieBtnClick = function () {
   }
 };
 
-movieBtnClick(); 
-
-
+movieBtnClick();
 
 const filterMovies = function (wordInMovie) {
   log(` I am filtered on the movie::`, wordInMovie);
 
-  const moviesFilter = movies.filter(function (movie) {
-    return wordInMovie.toLowerCase() === movie.title.includes(wordInMovie.toLowerCase())
+  const moviesFilter = movies.filter((movie) => {
+    wordInMovie.toLowerCase() ===
+      movie.title.includes(wordInMovie.toLowerCase());
   });
 
   log(moviesFilter);
   return moviesFilter;
 };
-
-log(filterMovies); 
 
 //includes()
 // case-sensitive
