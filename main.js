@@ -90,13 +90,14 @@ const filterMovies = function (wordInMovie) {
   log(` I am filtered on the movie::`, wordInMovie);
 
   const moviesFilter = movies.filter(function (movie) {
-    return wordInMovie === movie.title.includes(wordInMovie.toLowerCase())
+    return wordInMovie.toLowerCase() === movie.title.includes(wordInMovie.toLowerCase())
   });
 
   log(moviesFilter);
   return moviesFilter;
 };
 
-log(filterMovies)
+log(filterMovies); 
+
 //includes()
 // case-sensitive
