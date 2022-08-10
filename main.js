@@ -1,4 +1,5 @@
 'use strict';
+
 const log = console.log;
 
 // TODO : baseurl imdbID is not good yet.
@@ -6,6 +7,11 @@ const log = console.log;
 // get the UL by using id that you made
 // let baseURL = 'https://www.imdb.com/title/';
 // const imdbID = movies[1].imdbID;
+
+const imdbIDlurl = function (imdbID) {
+  const baseURL = 'https://www.imdb.com/title/';
+  return `${baseURL}${imdbID}`;
+};
 
 const moviesList = document.querySelector('#list-movies');
 
@@ -15,7 +21,7 @@ const addMoviesToDom = function (movies) {
 
     const movieLink = document.createElement('a');
 
-    movieLink.setAttribute('href', movie.imdbID);
+    movieLink.setAttribute('href', imdbIDlurl(movie.imdbID));
     newliItem.append(movieLink);
 
     const newImg = document.createElement('img');
@@ -85,11 +91,8 @@ const filterMovies = function (wordInMovie) {
   return moviesFilter;
 };
 
-
-
 //filtermovie
 const filterLatestMovies = function () {
-
   const yearFilter = movies.filter((movie) => parseInt(movie.year) > 2014);
 
   log(Array.isArray(yearFilter));
