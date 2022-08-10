@@ -45,9 +45,6 @@ log(resultMovies);
 
 // 2
 
-const allButtons = document.querySelectorAll('input[name="movies"]');
-log(allButtons);
-
 const handleOnChangeEvent = function (e) {
   const movieValue = e.target.value;
 
@@ -56,26 +53,24 @@ const handleOnChangeEvent = function (e) {
       log(`I am the movie ${movieValue}`);
       filterMovies(movieValue);
       break;
-    case 'movies-avenger':
-      log(`I am the movie ${movieValue}`);
+    case 'avenger':
       filterMovies(movieValue);
       break;
-    case 'movies-x-men':
-      log(`I am the movie ${movieValue}`);
-      filterMovies('X-men');
+    case 'x-men':
+      filterMovies(movieValue);
       break;
-    case 'movies-princess':
-      log(`I am the movie ${movieValue}`);
-      filterMovies('Princess');
+    case 'princess':
+      filterMovies(movieValue);
       break;
-    case 'movies-batman':
-      log(`I am the movie ${movieValue}`);
+    case 'batman':
       filterMovies(movieValue);
       break;
     default:
-      log('non of the above');
+      log('this movie is not in the list');
   }
 };
+
+const allButtons = document.querySelectorAll('input[name="movies"]');
 
 const movieBtnClick = function () {
   for (let button of allButtons) {
@@ -86,14 +81,11 @@ const movieBtnClick = function () {
 movieBtnClick();
 
 const filterMovies = function (wordInMovie) {
-  log(` I am filtered on the movie::`, wordInMovie);
-
-  const moviesFilter = movies.filter((movie) => {
-    wordInMovie.toLowerCase() ===
-      movie.title.toLowerCase().includes(wordInMovie);
+  const moviesFilter = movies.filter(function (movie) {
+    return movie.title.toLowerCase().includes(wordInMovie.toLowerCase());
   });
 
-  log(moviesFilter);
+  log(`Array of the movie` , wordInMovie.toUpperCase(), moviesFilter);
   return moviesFilter;
 };
 
