@@ -22,3 +22,30 @@ input event .. fire of when the value of your input get's changed. also works fo
 change event .. fires when the user changed the value. 
 
 
+
+## events
+
+browselevel event - load, resize, scroll
+dom level events (when we do something in the websitre) - mouse, formbased events and etc.
+
+how to use
+
+-first grab the DomNode 
+-tell this domNode what need to happen by giving the -event (click, mouseover and etc);
+
+
+## prevent default
+
+the event object gives us information about the event that occured. 
+
+
+
+e.preventDefault()
+
+prevents the default functioning be happening. 
+for instance when you submit a form. the default behavior is going to another page. but if you want to prevent the default behavior. 
+
+
+
+
+
