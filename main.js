@@ -30,6 +30,7 @@ const addMoviesToDom = function (movies) {
   movieArray.forEach(function (movie) {
     moviesList.append(movie);
   });
+
   console.dir(movieArray);
   return movieArray;
 };
@@ -44,7 +45,7 @@ const handleOnChangeEvent = function (e) {
   switch (movieValue) {
     case 'movies-new':
       log(`I am the movie ${movieValue}`);
-      filterMovies(movieValue);
+      filterLatestMovies();
       break;
     case 'avenger':
       filterMovies(movieValue);
@@ -79,13 +80,19 @@ const filterMovies = function (wordInMovie) {
   });
 
   log(`Array of the movie`, wordInMovie.toUpperCase(), moviesFilter);
+  log(Array.isArray(moviesFilter));
+  log(moviesFilter);
   return moviesFilter;
 };
 
 
-//filtermovie 
-const filterNewMovies = function () {
-  movies.filter(function (movie) {
-    return movie.year >= 2014;
-  });
+
+//filtermovie
+const filterLatestMovies = function () {
+
+  const yearFilter = movies.filter((movie) => parseInt(movie.year) > 2014);
+
+  log(Array.isArray(yearFilter));
+  log(yearFilter);
+  return yearFilter;
 };
