@@ -26,8 +26,8 @@ const addMoviesToDom = function (movies) {
     newImg.classList.add('poster');
     movieLink.append(newImg);
 
-    log(newliItem);
-    log(Array.isArray(newliItem));
+    // log(newliItem);
+    // log(Array.isArray(newliItem));
     return newliItem;
   });
 
@@ -35,13 +35,11 @@ const addMoviesToDom = function (movies) {
     moviesList.append(movie);
   });
 
-  console.dir(movieArray);
-  // return movieArray;
+  // console.dir(movieArray);
+  return movieArray;
 };
 
 const resultMovies = addMoviesToDom(movies);
-
-
 
 const handleOnChangeEvent = function (e) {
   const movieValue = e.target.value;
@@ -71,12 +69,16 @@ const movieBtnClick = function () {
 
 movieBtnClick();
 
+
+const moviesListChildren = moviesList.children;
+log(moviesListChildren)
+
 const filterMovies = function (wordInMovie) {
   // const moviesFilter = movies.filter(function (movie) {
   //   return movie.title.toLowerCase().includes(wordInMovie.toLowerCase());
   // });
 
-  for (let li of moviesList.children) {
+  for (let li of moviesListChildren) {
     if (li.title.toLowerCase().includes(wordInMovie)) {
       li.style.display = 'block';
     } else {
@@ -87,7 +89,7 @@ const filterMovies = function (wordInMovie) {
 
 const filterLatestMovies = function () {
   // const yearFilter = movies.filter((movie) => parseInt(movie.year) >= 2014);
-  for (let li of moviesList.children) {
+  for (let li of moviesListChildren) {
     let yearParsed = parseInt(li.value);
     // log(typeof yearParsed)
     if (yearParsed >= 2014) {
@@ -98,9 +100,31 @@ const filterLatestMovies = function () {
   }
 };
 
+// SEARCHBAR  
 
-//searchbar
+// const main = document.querySelector("main");
+// let mainText = "NOTHING TO SEE HERE";
 
-const searchBar = document.querySelector("#search");
-log(searchBar);
 
+const searchBarInput = document.querySelector('#search');
+const footer = document.querySelector('.footer')
+
+const searchInput = function (e) {
+  const inputTarget = e.target.value.toLowerCase();
+  // log(e)
+  // log(inputTarget);
+
+  for (let movie of moviesListChildren) {
+    if (movie.title.toLowerCase().includes(inputTarget)) {
+      movie.style.display = 'block';
+      // footer.style.display = 'block'
+    } else {
+      movie.style.display = 'none';
+      // document.body.style.height = '100vh';
+      footer.style.display = 'none'; // waarom de gaat de footer omhoog????? en is tie weg>???
+    }
+  }
+
+};
+
+searchBarInput.addEventListener('keydown', searchInput);

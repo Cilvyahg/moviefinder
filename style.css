@@ -33,7 +33,6 @@ body {
   font-size: 1.1rem;
 }
 
-
 div input {
   cursor: pointer;
 }
@@ -63,21 +62,35 @@ label {
 }
 
 .footer {
-  height: 5vh;
+  height: 6vh;
   background-color: #1e1746fc;
   color: #fff;
   display: flex;
-  justify-content: center;
   align-items: center;
   word-spacing: 0.5rem;
   text-transform: uppercase;
   position: absolute;
+  direction: rtl;
   bottom: 0;
   width: 100%;
 }
 
+.footer p {
+  margin-right: 3rem;
+}
+
 .poster {
   margin: 0 1rem 3rem 1rem;
+}
+
+.movieli:hover {
+  transition: transform 150ms 50ms ease-in-out;
+  transform: scale(1.1, 1.1);
+}
+
+input[type="text"]::placeholder {
+  font-size: 0.9rem;
+  color: #c71f59;
 }
 
 /* MEDIA QUERIES */
@@ -99,7 +112,7 @@ label {
     z-index: 2;
   }
 
-   #navbar > div:hover {
+  #navbar > div:hover {
     background-color: rgba(183, 195, 234, 0.345);
   }
   .poster {
