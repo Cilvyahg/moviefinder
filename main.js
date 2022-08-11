@@ -2,12 +2,7 @@
 
 const log = console.log;
 
-// TODO : baseurl imdbID is not good yet.
 // FUNCTION FOR NEW MOVIES
-// get the UL by using id that you made
-// let baseURL = 'https://www.imdb.com/title/';
-// const imdbID = movies[1].imdbID;
-
 const imdbIDlurl = function (imdbID) {
   const baseURL = 'https://www.imdb.com/title/';
   return `${baseURL}${imdbID}`;
@@ -18,6 +13,8 @@ const moviesList = document.querySelector('#list-movies');
 const addMoviesToDom = function (movies) {
   const movieArray = movies.map(function (movie) {
     const newliItem = document.createElement('li');
+    newliItem.setAttribute('title', movie.title);
+    newliItem.setAttribute('value', movie.year);
 
     const movieLink = document.createElement('a');
 
@@ -50,18 +47,11 @@ const handleOnChangeEvent = function (e) {
 
   switch (movieValue) {
     case 'movies-new':
-      log(`I am the movie ${movieValue}`);
       filterLatestMovies();
       break;
     case 'avenger':
-      filterMovies(movieValue);
-      break;
     case 'x-men':
-      filterMovies(movieValue);
-      break;
     case 'princess':
-      filterMovies(movieValue);
-      break;
     case 'batman':
       filterMovies(movieValue);
       break;
@@ -81,21 +71,33 @@ const movieBtnClick = function () {
 movieBtnClick();
 
 const filterMovies = function (wordInMovie) {
-  const moviesFilter = movies.filter(function (movie) {
-    return movie.title.toLowerCase().includes(wordInMovie.toLowerCase());
-  });
+  // const moviesFilter = movies.filter(function (movie) {
+  //   return movie.title.toLowerCase().includes(wordInMovie.toLowerCase());
+  // });
+  // log(moviesFilter);
 
-  log(`Array of the movie`, wordInMovie.toUpperCase(), moviesFilter);
-  log(Array.isArray(moviesFilter));
-  log(moviesFilter);
-  return moviesFilter;
+  // return moviesFilter;
+    for (let li of moviesList.children) {
+      if (li.title.toLowerCase().includes(wordInMovie)) {
+        li.style.display = 'block';
+      } else {
+        li.style.display = 'none';
+      }
+    }
 };
 
-//filtermovie
+//filtermovie year >= 2014;
 const filterLatestMovies = function () {
-  const yearFilter = movies.filter((movie) => parseInt(movie.year) > 2014);
+  // const yearFilter = movies.filter((movie) => parseInt(movie.year) >= 2014);
 
-  log(Array.isArray(yearFilter));
-  log(yearFilter);
-  return yearFilter;
+  for (let li of moviesList.children) {
+     
+     if (li.value >= 2014) {
+       li.style.display = 'block';
+     } else {
+       li.style.display = 'none';
+     }
+   }
+  // log(yearFilter);
+  // return yearFilter;
 };
