@@ -24,7 +24,7 @@ body {
 
 #navbar {
   background-color: #1e1746fc;
-  height: min(3rem, 10rem);
+  height: min(3rem, 8rem);
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -32,6 +32,7 @@ body {
   margin-bottom: 1rem;
   font-size: 1.1rem;
 }
+
 
 div input {
   cursor: pointer;
@@ -46,6 +47,9 @@ label {
   flex-wrap: wrap;
   list-style-type: none;
   cursor: pointer;
+  /* padding-inline-start:  */
+  justify-content: center;
+  align-items: center;
   /* gap: 1rem; */
 }
 
@@ -95,12 +99,12 @@ label {
     z-index: 2;
   }
 
-  #navbar > div:hover {
+   #navbar > div:hover {
     background-color: rgba(183, 195, 234, 0.345);
   }
   .poster {
     margin-bottom: 1.5rem;
-    width: 80%;
+    width: 90%;
   }
 
   #list-movies {
