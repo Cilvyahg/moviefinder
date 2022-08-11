@@ -5,39 +5,65 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik+Iso&display=swap"
+      rel="stylesheet"
+    />
     <script defer src="./movies.js"></script>
     <script defer src="./main.js"></script>
 
-    <title>filmfinder</title>
+    <title>moviefinder</title>
   </head>
   <body>
-    <header class="movies-header"><h1>For all your favorite movies </h1></header>
+    <header class="movies-header"><h1>For all your favorite movies</h1></header>
 
     <nav id="navbar">
-      <div><input type="radio" name="movies" id="movies-new" value="movies-new" />
-      <label for="movies-new">NEW MOVIES</label></div>
+      <div>
+        <input type="radio" name="movies" id="movies-new" value="movies-new" />
+        <label for="movies-new">NEW MOVIES</label>
+      </div>
 
-      <div><input type="radio" name="movies" id="movies-avenger" value="avenger" />
-      <label for="movies-avenger">AVENGERS</label></div>
+      <div>
+        <input type="radio" name="movies" id="movies-avenger" value="avenger" />
+        <label for="movies-avenger">AVENGERS</label>
+      </div>
 
-<div><input type="radio" name="movies" id="movies-x-men" value="x-men" />
-      <label for="movies-xmen">X-MEN</label></div>
+      <div>
+        <input type="radio" name="movies" id="movies-x-men" value="x-men" />
+        <label for="movies-xmen">X-MEN</label>
+      </div>
 
-      <div><input type="radio" name="movies" id="movies-princess" value="princess" />
-      <label for="movies-princess">PRINCESS</label></div>
+      <div>
+        <input
+          type="radio"
+          name="movies"
+          id="movies-princess"
+          value="princess"
+        />
+        <label for="movies-princess">PRINCESS</label>
+      </div>
 
-     <div><input type="radio" name="movies" id="movies-batman" value="batman" />
-      <label for="movies-batman">BATMAN</label></div> 
-      <div><input
-        type="text"
-        name="search"
-        id="search"
-        placeholder="Search Movies.."
-      /></div>
+      <div>
+        <input type="radio" name="movies" id="movies-batman" value="batman" />
+        <label for="movies-batman">BATMAN</label>
+      </div>
+      <div>
+        <!-- searchbar -->
+        <input
+          type="text"
+          name="search"
+          id="search"
+          placeholder="Search Movies.."
+        />
+      </div>
     </nav>
 
     <main><ul id="list-movies"></ul></main>
 
-    <footer>have fun watching ....</footer>
+    <footer class="footer"> <p>Don't forget the popcorn 🍿 ... </p></footer>
+    
+    
   </body>
-</html>
+  </html>≈

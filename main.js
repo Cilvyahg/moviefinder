@@ -14,6 +14,7 @@ const addMoviesToDom = function (movies) {
     const newliItem = document.createElement('li');
     newliItem.setAttribute('title', movie.title);
     newliItem.setAttribute('value', movie.year);
+    newliItem.classList.add('movieli');
 
     const movieLink = document.createElement('a');
 
@@ -35,7 +36,7 @@ const addMoviesToDom = function (movies) {
   });
 
   console.dir(movieArray);
-  return movieArray;
+  // return movieArray;
 };
 
 const resultMovies = addMoviesToDom(movies);
@@ -99,3 +100,7 @@ const filterLatestMovies = function () {
 
 
 //searchbar
+
+const searchBar = document.querySelector("#search");
+log(searchBar);
+

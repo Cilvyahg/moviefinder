@@ -1,6 +1,20 @@
 * {
   box-sizing: border-box;
-  margin: 0 auto;
+  margin: 0;
+}
+
+body {
+  background-color: #050523;
+  position: relative;
+}
+
+.movies-header > h1 {
+  font-family: 'Rubik Iso', cursive;
+  font-size: 2.5rem;
+  color: #a1b6ee;
+  background-color: rgb(3, 3, 3);
+  padding: 1.5rem 0;
+  text-shadow: 10px 4px #303b3d;
 }
 
 #navbar,
@@ -9,26 +23,94 @@
 }
 
 #navbar {
-  background-color: rgba(30, 23, 70, 0.988);
+  background-color: #1e1746fc;
   height: min(3rem, 10rem);
-  display:flex;
-  justify-content: space-evenly;
+  display: flex;
+  justify-content: space-around;
   align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
 }
-  
 
 label {
   color: white;
 }
-
 
 #list-movies {
   display: flex;
   flex-wrap: wrap;
   list-style-type: none;
   cursor: pointer;
+  /* gap: 1rem; */
 }
 
-/* .poster 
-/* width : min(100%, 900px); */
+#search {
+  border-radius: 100px;
+  padding: 0 1rem;
+  height: 1.5rem;
+}
+#search:hover {
+  background-color: rgb(246, 246, 223);
+}
 
+.footer {
+  height: 5vh;
+  background-color: #1e1746fc;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  word-spacing: 0.5rem;
+  text-transform: uppercase;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.poster {
+  margin: 0 1rem 3rem 1rem;
+}
+/* width : min(100%, 900px);
+
+/* .footer > p {
+  direction: rtl;
+} */
+
+/* MEDIA QUERIES */
+
+@media screen and (max-width: 768px) {
+
+
+  #navbar > div {
+    width: 100%;
+    border-top: 1px solid rgba(93, 93, 95, 0.532);
+    display: inline-block;
+    padding: 0.2rem 0;
+    background-color: #1e1746fc;
+    font-size: 1rem;
+    z-index: 2;
+  
+  }
+
+  .poster {
+    margin-bottom: 1.5rem;
+  }
+
+  #list-movies {
+    flex-wrap: wrap;
+    list-style-type: none;
+    justify-content: center;
+    margin-top: 8rem;
+    margin-bottom: 0;
+    
+  }
+
+  .footer {
+    visibility: hidden;
+  }
+
+  /* #list-movies > .movieli:first-child {
+    margin-top: 8rem;
+  } */
+}
