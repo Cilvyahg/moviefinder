@@ -2,7 +2,6 @@
 
 const log = console.log;
 
-// FUNCTION FOR NEW MOVIES
 const imdbIDlurl = function (imdbID) {
   const baseURL = 'https://www.imdb.com/title/';
   return `${baseURL}${imdbID}`;
@@ -23,6 +22,7 @@ const addMoviesToDom = function (movies) {
 
     const newImg = document.createElement('img');
     newImg.setAttribute('src', movie.poster);
+    newImg.classList.add('poster');
     movieLink.append(newImg);
 
     log(newliItem);
@@ -39,9 +39,9 @@ const addMoviesToDom = function (movies) {
 };
 
 const resultMovies = addMoviesToDom(movies);
-log(resultMovies);
 
-// SWITCH STATEMENT
+
+
 const handleOnChangeEvent = function (e) {
   const movieValue = e.target.value;
 
@@ -74,30 +74,28 @@ const filterMovies = function (wordInMovie) {
   // const moviesFilter = movies.filter(function (movie) {
   //   return movie.title.toLowerCase().includes(wordInMovie.toLowerCase());
   // });
-  // log(moviesFilter);
-
-  // return moviesFilter;
-    for (let li of moviesList.children) {
-      if (li.title.toLowerCase().includes(wordInMovie)) {
-        li.style.display = 'block';
-      } else {
-        li.style.display = 'none';
-      }
-    }
-};
-
-//filtermovie year >= 2014;
-const filterLatestMovies = function () {
-  // const yearFilter = movies.filter((movie) => parseInt(movie.year) >= 2014);
 
   for (let li of moviesList.children) {
-     
-     if (li.value >= 2014) {
-       li.style.display = 'block';
-     } else {
-       li.style.display = 'none';
-     }
-   }
-  // log(yearFilter);
-  // return yearFilter;
+    if (li.title.toLowerCase().includes(wordInMovie)) {
+      li.style.display = 'block';
+    } else {
+      li.style.display = 'none';
+    }
+  }
 };
+
+const filterLatestMovies = function () {
+  // const yearFilter = movies.filter((movie) => parseInt(movie.year) >= 2014);
+  for (let li of moviesList.children) {
+    let yearParsed = parseInt(li.value);
+    // log(typeof yearParsed)
+    if (yearParsed >= 2014) {
+      li.style.display = 'block';
+    } else {
+      li.style.display = 'none';
+    }
+  }
+};
+
+
+//searchbar
