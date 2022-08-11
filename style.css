@@ -30,7 +30,11 @@ body {
   align-items: center;
   flex-wrap: wrap;
   margin-bottom: 1rem;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
+}
+
+div input {
+  cursor: pointer;
 }
 
 label {
@@ -71,30 +75,32 @@ label {
 .poster {
   margin: 0 1rem 3rem 1rem;
 }
-/* width : min(100%, 900px);
-
-/* .footer > p {
-  direction: rtl;
-} */
 
 /* MEDIA QUERIES */
 
 @media screen and (max-width: 768px) {
-
+  .movies-header > h1 {
+    font-size: 1.8rem;
+    inline-size: 50%;
+    margin-inline-start: 25%;
+  }
 
   #navbar > div {
     width: 100%;
-    border-top: 1px solid rgba(93, 93, 95, 0.532);
+    border-top: 1px solid rgba(82, 82, 82, 0.532);
     display: inline-block;
     padding: 0.2rem 0;
     background-color: #1e1746fc;
     font-size: 1rem;
     z-index: 2;
-  
   }
 
+  #navbar > div:hover {
+    background-color: rgba(183, 195, 234, 0.345);
+  }
   .poster {
     margin-bottom: 1.5rem;
+    width: 80%;
   }
 
   #list-movies {
@@ -103,7 +109,6 @@ label {
     justify-content: center;
     margin-top: 8rem;
     margin-bottom: 0;
-    
   }
 
   .footer {
