@@ -55,3 +55,21 @@ vb
 
 
 // searchh bar
+
+
+container 
+footer and main -- maar niet meer gebruikt want body om 100vh min height gezet en werkt ook. 
+
+/* .container-main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+    /* min-height: 100vh; *
+} */
+
+
+
+
+/* #list-movies > .movieli:first-child {
+
+} */

@@ -15,6 +15,8 @@ html {
 body {
   background-color: #050523;
   position: relative;
+  min-height: 100vh;
+  
 }
 
 .movies-header > h1 {
@@ -111,12 +113,6 @@ input[type='radio']:checked {
   accent-color: hotpink;
 }
 
-.container-main {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  min-height: 100vh;
-}
 
 /* MEDIA QUERIES */
 
@@ -158,6 +154,4 @@ input[type='radio']:checked {
   }
 }
 
-/* #list-movies > .movieli:first-child {
 
-} */
