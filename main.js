@@ -105,7 +105,6 @@ const filterLatestMovies = function () {
 // let mainText = "NOTHING TO SEE HERE";
 
 const searchBarInput = document.querySelector('#search');
-const footer = document.querySelector('.footer');
 
 const searchInput = function (e) {
   const inputTarget = e.target.value.toLowerCase();
