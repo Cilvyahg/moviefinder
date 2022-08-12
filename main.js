@@ -69,9 +69,8 @@ const movieBtnClick = function () {
 
 movieBtnClick();
 
-
 const moviesListChildren = moviesList.children;
-log(moviesListChildren)
+log(moviesListChildren);
 
 const filterMovies = function (wordInMovie) {
   // const moviesFilter = movies.filter(function (movie) {
@@ -100,14 +99,13 @@ const filterLatestMovies = function () {
   }
 };
 
-// SEARCHBAR  
+// SEARCHBAR
 
 // const main = document.querySelector("main");
 // let mainText = "NOTHING TO SEE HERE";
 
-
 const searchBarInput = document.querySelector('#search');
-const footer = document.querySelector('.footer')
+const footer = document.querySelector('.footer');
 
 const searchInput = function (e) {
   const inputTarget = e.target.value.toLowerCase();
@@ -117,14 +115,13 @@ const searchInput = function (e) {
   for (let movie of moviesListChildren) {
     if (movie.title.toLowerCase().includes(inputTarget)) {
       movie.style.display = 'block';
-      // footer.style.display = 'block'
     } else {
       movie.style.display = 'none';
-      // document.body.style.height = '100vh';
-      footer.style.display = 'none'; // waarom de gaat de footer omhoog????? en is tie weg>???
+      document.body.style.height = '100vh';
+      footer.style.bottom = '0';
+      footer.style.removeProperty('bottom');
     }
   }
-
 };
 
 searchBarInput.addEventListener('keydown', searchInput);
