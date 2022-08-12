@@ -26,8 +26,6 @@ const addMoviesToDom = function (movies) {
     newImg.classList.add('poster');
     movieLink.append(newImg);
 
-    // log(newliItem);
-    // log(Array.isArray(newliItem));
     return newliItem;
   });
 
@@ -35,7 +33,6 @@ const addMoviesToDom = function (movies) {
     moviesList.append(movie);
   });
 
-  // console.dir(movieArray);
   return movieArray;
 };
 
@@ -100,9 +97,6 @@ const filterLatestMovies = function () {
 };
 
 // SEARCHBAR
-
-// const main = document.querySelector("main");
-// let mainText = "NOTHING TO SEE HERE";
 
 const searchBarInput = document.querySelector('#search');
 
