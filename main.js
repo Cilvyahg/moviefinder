@@ -2,6 +2,8 @@
 
 const log = console.log;
 
+
+
 const imdbIDlurl = function (imdbID) {
   const baseURL = 'https://www.imdb.com/title/';
   return `${baseURL}${imdbID}`;
@@ -115,11 +117,13 @@ const searchInput = function (e) {
   for (let movie of moviesListChildren) {
     if (movie.title.toLowerCase().includes(inputTarget)) {
       movie.style.display = 'block';
+      document.body.style.height = '100%';
     } else {
       movie.style.display = 'none';
-      document.body.style.height = '100vh';
       footer.style.bottom = '0';
-      footer.style.removeProperty('bottom');
+      document.body.style.height = '100vh';
+      
+      
     }
   }
 };

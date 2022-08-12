@@ -3,6 +3,10 @@
   margin: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background-color: #050523;
   position: relative;
@@ -88,7 +92,7 @@ label {
   transform: scale(1.1, 1.1);
 }
 
-input[type="text"]::placeholder {
+input[type='text']::placeholder {
   font-size: 0.9rem;
   color: #c71f59;
 }
