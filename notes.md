@@ -73,3 +73,15 @@ footer and main -- maar niet meer gebruikt want body om 100vh min height gezet e
 /* #list-movies > .movieli:first-child {
 
 } */
+
+
+
+#### Keydown vs Keyup
+
+The order of events:: 
+
+When user presses a key or combination of different keys, keydown, keypress and keyup are triggered in that order:
+The keydown event is triggered first when user presses a key. the keyup fires only once wgen releases the key.
+
+The keyup event is triggered last when user releases a key
+In between, the keypress event is triggered

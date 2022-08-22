@@ -18,12 +18,14 @@ const addMoviesToDom = function (movies) {
 
     const movieLink = document.createElement('a');
 
-    movieLink.setAttribute('href', imdbIDlurl(movie.imdbID));
-    movieLink.setAttribute('target', "_blank");
+    movieLink.href = imdbIDlurl(movie.imdbID); // you don't need to setAttribute() with href because you can access it directly
+    // movieLink.setAttribute('target', "_blank");
+    movieLink.target = '_blank';
     newliItem.append(movieLink);
 
     const newImg = document.createElement('img');
-    newImg.setAttribute('src', movie.poster);
+    // newImg.setAttribute('src', movie.poster);
+    newImg.src = movie.poster; // you have directly access to the image src. no need to use the setAttribute() method
     newImg.classList.add('poster');
     movieLink.append(newImg);
 
@@ -119,6 +121,8 @@ const searchInput = function (e) {
       movie.style.display = 'none';
     }
   }
+
+  searchBarInput = ""; 
 };
 
 searchBarInput.addEventListener('keyup', searchInput);
