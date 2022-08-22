@@ -2,10 +2,10 @@
 
 const log = console.log;
 
-const imdbIDlurl = function (imdbID) {
-  const baseURL = 'https://www.imdb.com/title/';
-  return `${baseURL}${imdbID}`;
-};
+// const imdbIDlurl = function (imdbID) {
+//   const baseURL = 'https://www.imdb.com/title/';
+//   return `${baseURL}${imdbID}`;
+// };
 
 const moviesList = document.querySelector('#list-movies');
 
@@ -18,12 +18,13 @@ const addMoviesToDom = function (movies) {
 
     const movieLink = document.createElement('a');
 
-    movieLink.href = imdbIDlurl(movie.imdbID); // you don't need to setAttribute() with href because you can access it directly
+    movieLink.href = `https://www.imdb.com/title/${movie.imdbID}`; // you don't need to setAttribute() with href because you can access it directly
     // movieLink.setAttribute('target', "_blank");
     movieLink.target = '_blank';
     newliItem.append(movieLink);
 
     const newImg = document.createElement('img');
+    newImg.style.width = "18rem"
     // newImg.setAttribute('src', movie.poster);
     newImg.src = movie.poster; // you have directly access to the image src. no need to use the setAttribute() method
     newImg.classList.add('poster');
@@ -115,9 +116,7 @@ const searchInput = function (e) {
   allButtons.forEach(button => {
     button.checked = false;
   });
-  // log(e)
-  // log(inputTarget);
-
+  
   for (let movie of moviesListChildren) {
     if (movie.title.toLowerCase().includes(inputTarget)) {
       movie.style.display = 'block';
@@ -125,8 +124,8 @@ const searchInput = function (e) {
       movie.style.display = 'none';
     }
   }
-
-  searchBarInput = ""; 
+  
 };
 
 searchBarInput.addEventListener('keyup', searchInput);
+
