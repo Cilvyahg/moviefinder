@@ -111,6 +111,10 @@ const searchBarInput = document.querySelector('#search');
 
 const searchInput = function (e) {
   const inputTarget = e.target.value.toLowerCase();
+
+  allButtons.forEach(button => {
+    button.checked = false;
+  });
   // log(e)
   // log(inputTarget);
 
