@@ -19,6 +19,7 @@ const addMoviesToDom = function (movies) {
     const movieLink = document.createElement('a');
 
     movieLink.setAttribute('href', imdbIDlurl(movie.imdbID));
+    movieLink.setAttribute('target', "_blank");
     newliItem.append(movieLink);
 
     const newImg = document.createElement('img');
@@ -29,9 +30,15 @@ const addMoviesToDom = function (movies) {
     return newliItem;
   });
 
-  movieArray.forEach(function (movie) {
-    moviesList.append(movie);
-  });
+  for (let movieHero of movieArray) {
+    moviesList.append(movieHero);
+  }
+
+  //changed to for of loop because of convenience
+
+  // movieArray.forEach(function (movie) {
+  //   moviesList.append(movie);
+  // });
 
   return movieArray;
 };
@@ -114,4 +121,4 @@ const searchInput = function (e) {
   }
 };
 
-searchBarInput.addEventListener('keydown', searchInput);
+searchBarInput.addEventListener('keyup', searchInput);
